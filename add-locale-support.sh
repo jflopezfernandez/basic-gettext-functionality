@@ -10,7 +10,7 @@ then
 
     for locale in $@
     do
-        msgfmt -o $locale/LC_MESSAGES/basic.mo $locale.po
+        msgfmt --no-hash -o $locale/LC_MESSAGES/basic.mo $locale.po
     done
 
     exit
@@ -21,5 +21,5 @@ do
     msginit --no-translator --input=po/basic.pot --locale=$locale
     sed -i -E 's/ASCII/UTF-8/' $locale.po
     mkdir -p $locale/LC_MESSAGES/
-    msgfmt -o $locale/LC_MESSAGES/basic.mo $locale.po
+    msgfmt --no-hash -o $locale/LC_MESSAGES/basic.mo $locale.po
 done
